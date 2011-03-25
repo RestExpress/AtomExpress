@@ -28,10 +28,10 @@ import java.util.List;
 public class Entry
 {
 	private String xmlBase;
-	private List authors;
-	private List contributors;
-	private List categories;
-	private List contents;
+	private List<String> authors;
+	private List<String> contributors;
+	private List<Category> categories;
+	private List<String> contents;
 	private String id;
 	private Date published; // AKA issued
 	private String rights;
@@ -39,11 +39,11 @@ public class Entry
 	private Content summary;
 	private Content title;
 	private Date updated; // AKA modified
-	private List alternateLinks;
-	private List otherLinks;
-	private List foreignMarkup;
+	private List<Link> alternateLinks;
+	private List<Link> otherLinks;
+	private List<String> foreignMarkup;
 
 	private List extensions;
 
-	private Date _created; // Atom 0.3 only
+	private Date created; // Atom 0.3 only
 }

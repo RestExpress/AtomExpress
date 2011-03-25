@@ -21,19 +21,15 @@ import java.util.List;
 
 /**
  * Bean for Atom feeds.
- * <p>
- * It handles Atom feeds version 0.3 without loosing any feed information.
- * <p>
  * 
- * @author Alejandro Abdelnur
- * @author Dave Johnson (updated for Atom 1.0)
+ * @author toddf
  */
 public class Feed
 {
 	private String xmlBase;
-	private List categories;
-	private List authors;
-	private List contributors;
+	private List<Category> categories;
+	private List<Person> authors;
+	private List<Person> contributors;
 	private Generator generator;
 	private String icon;
 	private String id;
@@ -42,9 +38,9 @@ public class Feed
 	private Content subtitle; // AKA tagline
 	private Content title;
 	private Date updated; // AKA modified
-	private List alternateLinks;
-	private List otherLinks;
-	private List entries;
+	private List<Link> alternateLinks;
+	private List<Link> otherLinks;
+	private List<Entry> entries;
 
 	private List extensions;
 

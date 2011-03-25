@@ -14,21 +14,19 @@
  * limitations under the License.
  *
  */
-package com.strategicgains.atomexpress.domain.atom;
+package com.strategicgains.atomexpress.domain.rss;
 
 /**
- * Bean for link elements of an Atom feed.
+ * Bean for item descriptions of RSS feeds.
  * 
  * @author toddf
- * @since 24 Feb 2011
+ * 
  */
-public class Link
+public class Content
 {
-	private String href;
-	private String hrefResolved;
-	private String rel = "alternate";
+	public static final String HTML_TYPE = "html";
+	public static final String TEXT_TYPE = "text";
+
 	private String type;
-	private String hreflang;
-	private String title;
-	private long length;
+	private String value;
 }

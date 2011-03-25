@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Bean for person elements of an Atom feed.
- * <p>
+ *
  * @author toddf
  */
 public class Person
