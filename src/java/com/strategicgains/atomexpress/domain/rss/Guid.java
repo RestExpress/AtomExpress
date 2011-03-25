@@ -12,7 +12,7 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
+ */
 package com.strategicgains.atomexpress.domain.rss;
 
 /**
@@ -22,6 +22,26 @@ package com.strategicgains.atomexpress.domain.rss;
  */
 public class Guid
 {
-    private boolean permaLink;
-    private String value;
+	private boolean permaLink;
+	private String value;
+
+	public boolean isPermaLink()
+	{
+		return permaLink;
+	}
+
+	public void setPermaLink(boolean permaLink)
+	{
+		this.permaLink = permaLink;
+	}
+
+	public String getValue()
+	{
+		return value;
+	}
+
+	public void setValue(String value)
+	{
+		this.value = value;
+	}
 }

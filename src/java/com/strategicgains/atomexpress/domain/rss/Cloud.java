@@ -18,15 +18,65 @@ package com.strategicgains.atomexpress.domain.rss;
 
 /**
  * Bean for clouds of RSS feeds.
- *
+ * 
  * @author toddf
- *
+ * 
  */
 public class Cloud
 {
-    private String domain;
-    private int port;
-    private String path;
-    private String registerProcedure;
-    private String protocol;
+	private String domain;
+	private int port;
+	private String path;
+	private String registerProcedure;
+	private String protocol;
+
+	public String getDomain()
+	{
+		return domain;
+	}
+
+	public void setDomain(String domain)
+	{
+		this.domain = domain;
+	}
+
+	public int getPort()
+	{
+		return port;
+	}
+
+	public void setPort(int port)
+	{
+		this.port = port;
+	}
+
+	public String getPath()
+	{
+		return path;
+	}
+
+	public void setPath(String path)
+	{
+		this.path = path;
+	}
+
+	public String getRegisterProcedure()
+	{
+		return registerProcedure;
+	}
+
+	public void setRegisterProcedure(String registerProcedure)
+	{
+		this.registerProcedure = registerProcedure;
+	}
+
+	public String getProtocol()
+	{
+		return protocol;
+	}
+
+	public void setProtocol(String protocol)
+	{
+		this.protocol = protocol;
+	}
 }

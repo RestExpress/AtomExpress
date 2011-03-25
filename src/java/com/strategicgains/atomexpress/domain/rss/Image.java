@@ -12,7 +12,7 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
+ */
 package com.strategicgains.atomexpress.domain.rss;
 
 /**
@@ -22,10 +22,70 @@ package com.strategicgains.atomexpress.domain.rss;
  */
 public class Image
 {
-    private String title;
-    private String url;
-    private String link;
-    private Integer width;
-    private Integer height;
-    private String description;
+	private String title;
+	private String url;
+	private String link;
+	private Integer width;
+	private Integer height;
+	private String description;
+
+	public String getTitle()
+	{
+		return title;
+	}
+
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+
+	public String getUrl()
+	{
+		return url;
+	}
+
+	public void setUrl(String url)
+	{
+		this.url = url;
+	}
+
+	public String getLink()
+	{
+		return link;
+	}
+
+	public void setLink(String link)
+	{
+		this.link = link;
+	}
+
+	public Integer getWidth()
+	{
+		return width;
+	}
+
+	public void setWidth(Integer width)
+	{
+		this.width = width;
+	}
+
+	public Integer getHeight()
+	{
+		return height;
+	}
+
+	public void setHeight(Integer height)
+	{
+		this.height = height;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
+	}
 }

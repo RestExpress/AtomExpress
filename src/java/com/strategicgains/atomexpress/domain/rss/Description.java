@@ -12,7 +12,7 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
+ */
 package com.strategicgains.atomexpress.domain.rss;
 
 /**
@@ -22,6 +22,26 @@ package com.strategicgains.atomexpress.domain.rss;
  */
 public class Description
 {
-    private String type;
-    private String value;
+	private String type;
+	private String value;
+
+	public String getType()
+	{
+		return type;
+	}
+
+	public void setType(String type)
+	{
+		this.type = type;
+	}
+
+	public String getValue()
+	{
+		return value;
+	}
+
+	public void setValue(String value)
+	{
+		this.value = value;
+	}
 }
