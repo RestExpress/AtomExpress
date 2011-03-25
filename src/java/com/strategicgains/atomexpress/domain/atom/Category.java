@@ -16,7 +16,6 @@
  */
 package com.strategicgains.atomexpress.domain.atom;
 
-
 /**
  * Bean for category elements of an Atom feed.
  * 
@@ -29,4 +28,45 @@ public class Category
 	private String scheme;
 	private String schemeResolved;
 	private String label;
+
+	public String getTerm()
+	{
+		return term;
+	}
+
+	public void setTerm(String term)
+	{
+		this.term = term;
+	}
+
+	public String getScheme()
+	{
+		return scheme;
+	}
+
+	public void setScheme(String scheme)
+	{
+		this.scheme = scheme;
+	}
+
+	public String getSchemeResolved()
+	{
+		return schemeResolved;
+	}
+
+	public void setSchemeResolved(String schemeResolved)
+	{
+		this.schemeResolved = schemeResolved;
+	}
+
+	public String getLabel()
+	{
+		return label;
+	}
+
+	public void setLabel(String label)
+	{
+		this.label = label;
+	}
+
 }

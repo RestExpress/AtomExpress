@@ -20,14 +20,64 @@ import java.util.List;
 
 /**
  * Bean for person elements of an Atom feed.
- *
+ * 
  * @author toddf
  */
 public class Person
 {
-    private String name;
-    private String uri;
-    private String uriResolved; 
-    private String email;
-    private List extensions;
+	private String name;
+	private String uri;
+	private String uriResolved;
+	private String email;
+	private List extensions;
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getUri()
+	{
+		return uri;
+	}
+
+	public void setUri(String uri)
+	{
+		this.uri = uri;
+	}
+
+	public String getUriResolved()
+	{
+		return uriResolved;
+	}
+
+	public void setUriResolved(String uriResolved)
+	{
+		this.uriResolved = uriResolved;
+	}
+
+	public String getEmail()
+	{
+		return email;
+	}
+
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+
+	public List getExtensions()
+	{
+		return extensions;
+	}
+
+	public void setExtensions(List extensions)
+	{
+		this.extensions = extensions;
+	}
 }

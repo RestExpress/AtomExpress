@@ -31,4 +31,74 @@ public class Link
 	private String hreflang;
 	private String title;
 	private long length;
+
+	public String getHref()
+	{
+		return href;
+	}
+
+	public void setHref(String href)
+	{
+		this.href = href;
+	}
+
+	public String getHrefResolved()
+	{
+		return hrefResolved;
+	}
+
+	public void setHrefResolved(String hrefResolved)
+	{
+		this.hrefResolved = hrefResolved;
+	}
+
+	public String getRel()
+	{
+		return rel;
+	}
+
+	public void setRel(String rel)
+	{
+		this.rel = rel;
+	}
+
+	public String getType()
+	{
+		return type;
+	}
+
+	public void setType(String type)
+	{
+		this.type = type;
+	}
+
+	public String getHreflang()
+	{
+		return hreflang;
+	}
+
+	public void setHreflang(String hreflang)
+	{
+		this.hreflang = hreflang;
+	}
+
+	public String getTitle()
+	{
+		return title;
+	}
+
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+
+	public long getLength()
+	{
+		return length;
+	}
+
+	public void setLength(long length)
+	{
+		this.length = length;
+	}
 }
