@@ -16,6 +16,8 @@
  */
 package com.strategicgains.atomexpress.domain.atom;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -43,9 +45,34 @@ public class Entry
 	private List<Link> otherLinks;
 	private List<String> foreignMarkup;
 
-	private List extensions;
+//	private List extensions;
 
-	private Date created; // Atom 0.3 only
+//	private Date created; // Atom 0.3 only
+
+	public Entry()
+	{
+		super();
+	}
+	
+	public Entry(Entry that)
+	{
+		this();
+		setXmlBase(that.xmlBase);
+		addAllAuthors(that.authors);
+		addAllContributors(that.contributors);
+		addAllCategories(that.categories);
+		addAllContents(that.contents);
+		setId(that.id);
+		setPublished(that.published);
+		setRights(that.rights);
+		setSource(that.source);
+		setSummary(that.summary);
+		setTitle(that.title);
+		setUpdated(that.updated);
+		addAllAlternateLinks(that.alternateLinks);
+		addAllOtherLinks(that.otherLinks);
+		addAllForeignMarkup(that.foreignMarkup);
+	}
 
 	public String getXmlBase()
 	{
@@ -59,43 +86,113 @@ public class Entry
 
 	public List<Person> getAuthors()
 	{
-		return authors;
+		return (authors == null ? null : Collections.unmodifiableList(authors));
 	}
 
-	public void setAuthors(List<Person> authors)
+	public void addAllAuthors(List<Person> authors)
 	{
-		this.authors = authors;
+		if (authors == null) return;
+
+		for (Person author : authors)
+		{
+			addAuthor(author);
+		}
 	}
+
+    public void addAuthor(Person author)
+    {
+    	if (author == null) return;
+    	
+
+		if (this.authors == null)
+		{
+			this.authors = new ArrayList<Person>();
+		}
+		
+		this.authors.add(new Person(author));
+    }
 
 	public List<Person> getContributors()
 	{
-		return contributors;
+		return (contributors == null ? null : Collections.unmodifiableList(contributors));
 	}
 
-	public void setContributors(List<Person> contributors)
+	public void addAllContributors(List<Person> contributors)
 	{
-		this.contributors = contributors;
+		if (contributors == null) return;
+		
+		for (Person contributor : contributors)
+		{
+			addContributor(contributor);
+		}
 	}
+
+    private void addContributor(Person contributor)
+    {
+    	if (contributor == null) return;
+    	
+
+		if (this.contributors == null)
+		{
+			this.contributors = new ArrayList<Person>();
+		}
+		
+		this.contributors.add(new Person(contributor));
+    }
 
 	public List<Category> getCategories()
 	{
-		return categories;
+		return (categories == null ? null : Collections.unmodifiableList(categories));
 	}
 
-	public void setCategories(List<Category> categories)
+	public void addAllCategories(List<Category> categories)
 	{
-		this.categories = categories;
+		if (categories == null) return;
+
+		for (Category category : categories)
+		{
+			addCategory(category);
+		}
+	}
+
+	public void addCategory(Category category)
+	{
+		if (category == null) return;
+		
+		if (this.categories == null)
+		{
+			this.categories = new ArrayList<Category>();
+		}
+		
+		this.categories.add(new Category(category));
 	}
 
 	public List<Content> getContents()
 	{
-		return contents;
+		return (contents == null ? null : Collections.unmodifiableList(contents));
 	}
 
-	public void setContents(List<Content> contents)
+	public void addAllContents(List<Content> contents)
 	{
-		this.contents = contents;
+		if (contents == null) return;
+		
+		for (Content content : contents)
+		{
+			addContent(content);
+		}
 	}
+
+    public void addContent(Content content)
+    {
+    	if (content == null) return;
+    	
+    	if (this.contents == null)
+    	{
+    		this.contents = new ArrayList<Content>();
+    	}
+    	
+    	this.contents.add(new Content(content));
+    }
 
 	public String getId()
 	{
@@ -109,12 +206,12 @@ public class Entry
 
 	public Date getPublished()
 	{
-		return published;
+		return (published == null ? null : new Date(published.getTime()));
 	}
 
 	public void setPublished(Date published)
 	{
-		this.published = published;
+		this.published = (published == null ? null : new Date(published.getTime()));
 	}
 
 	public String getRights()
@@ -129,91 +226,122 @@ public class Entry
 
 	public Feed getSource()
 	{
-		return source;
+		return (source == null ? null : new Feed(source));
 	}
 
 	public void setSource(Feed source)
 	{
-		this.source = source;
+		this.source = (source == null ? null : new Feed(source));
 	}
 
 	public Content getSummary()
 	{
-		return summary;
+		return (summary == null ? null : new Content(summary));
 	}
 
 	public void setSummary(Content summary)
 	{
-		this.summary = summary;
+		this.summary = (summary == null ? null : new Content(summary));
 	}
 
 	public Content getTitle()
 	{
-		return title;
+		return (title == null ? null: new Content(title));
 	}
 
 	public void setTitle(Content title)
 	{
-		this.title = title;
+		this.title = (title == null ? null: new Content(title));
 	}
 
 	public Date getUpdated()
 	{
-		return updated;
+		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public void setUpdated(Date updated)
 	{
-		this.updated = updated;
+		this.updated = (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public List<Link> getAlternateLinks()
 	{
-		return alternateLinks;
+		return (alternateLinks == null ? null : Collections.unmodifiableList(alternateLinks));
 	}
 
-	public void setAlternateLinks(List<Link> alternateLinks)
+	public void addAllAlternateLinks(List<Link> alternateLinks)
 	{
-		this.alternateLinks = alternateLinks;
+		if (alternateLinks == null) return;
+		
+		for (Link link : alternateLinks)
+		{
+			addAlternateLink(link);
+		}
 	}
+
+    public void addAlternateLink(Link link)
+    {
+    	if (link == null) return;
+    	
+    	if (this.alternateLinks == null)
+    	{
+    		this.alternateLinks = new ArrayList<Link>();
+    	}
+    	
+    	this.alternateLinks.add(new Link(link));
+    }
 
 	public List<Link> getOtherLinks()
 	{
-		return otherLinks;
+		return (otherLinks == null ? null : Collections.unmodifiableList(otherLinks));
 	}
 
-	public void setOtherLinks(List<Link> otherLinks)
+	public void addAllOtherLinks(List<Link> otherLinks)
 	{
-		this.otherLinks = otherLinks;
+		if (otherLinks == null) return;
+		
+		for (Link link : otherLinks)
+		{
+			addOtherLink(link);
+		}
 	}
+
+    public void addOtherLink(Link link)
+    {
+    	if (link == null) return;
+    	
+    	if (this.otherLinks == null)
+    	{
+    		this.otherLinks = new ArrayList<Link>();
+    	}
+    	
+    	this.otherLinks.add(new Link(link));
+    }
 
 	public List<String> getForeignMarkup()
 	{
-		return foreignMarkup;
+		return (foreignMarkup == null ? null : Collections.unmodifiableList(foreignMarkup));
 	}
 
-	public void setForeignMarkup(List<String> foreignMarkup)
+	public void addAllForeignMarkup(List<String> foreignMarkup)
 	{
-		this.foreignMarkup = foreignMarkup;
+		if (foreignMarkup == null) return;
+		
+		for (String markup : foreignMarkup)
+		{
+			addForeignMarkup(markup);
+		}
 	}
 
-	public List getExtensions()
-	{
-		return extensions;
-	}
-
-	public void setExtensions(List extensions)
-	{
-		this.extensions = extensions;
-	}
-
-	public Date getCreated()
-	{
-		return created;
-	}
-
-	public void setCreated(Date created)
-	{
-		this.created = created;
-	}
+    public void addForeignMarkup(String markup)
+    {
+    	if (markup == null) return;
+    	
+    	if (this.foreignMarkup == null)
+    	{
+    		this.foreignMarkup = new ArrayList<String>();
+    	}
+    	
+    	this.foreignMarkup.add(markup);
+    }
 }

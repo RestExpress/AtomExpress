@@ -32,6 +32,23 @@ public class Link
 	private String title;
 	private long length;
 
+	public Link()
+	{
+		super();
+	}
+	
+	public Link(Link that)
+	{
+		this();
+		setHref(that.href);
+		setHrefResolved(that.hrefResolved);
+		setRel(that.rel);
+		setType(that.type);
+		setHreflang(that.hreflang);
+		setTitle(that.title);
+		setLength(that.length);
+	}
+
 	public String getHref()
 	{
 		return href;

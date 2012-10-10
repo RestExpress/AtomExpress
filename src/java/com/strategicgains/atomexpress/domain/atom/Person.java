@@ -16,7 +16,6 @@
  */
 package com.strategicgains.atomexpress.domain.atom;
 
-import java.util.List;
 
 /**
  * Bean for person elements of an Atom feed.
@@ -29,7 +28,21 @@ public class Person
 	private String uri;
 	private String uriResolved;
 	private String email;
-	private List extensions;
+//	private List extensions;
+
+	public Person()
+	{
+		super();
+	}
+	
+	public Person(Person that)
+	{
+		this();
+		setName(that.name);
+		setUri(that.uri);
+		setUriResolved(that.uriResolved);
+		setEmail(that.email);
+	}
 
 	public String getName()
 	{
@@ -69,15 +82,5 @@ public class Person
 	public void setEmail(String email)
 	{
 		this.email = email;
-	}
-
-	public List getExtensions()
-	{
-		return extensions;
-	}
-
-	public void setExtensions(List extensions)
-	{
-		this.extensions = extensions;
 	}
 }

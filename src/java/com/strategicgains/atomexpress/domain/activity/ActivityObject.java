@@ -44,6 +44,24 @@ public class ActivityObject
 	{
 		super();
 	}
+	
+	public ActivityObject(ActivityObject that)
+	{
+		this();
+		addAllAttachments(that.attachments);
+		setAuthor(that.author);
+		setContent(that.content);
+		setDisplayName(that.displayName);
+		addAllDownstreamDuplicates(that.downstreamDuplicates);
+		setId(that.id);
+		setImage(that.image);
+		setObjectType(that.objectType);
+		setPublished(that.published);
+		setSummary(that.summary);
+		setUpdated(that.updated);
+		addAllUpstreamDuplicates(that.upstreamDuplicates);
+		setUrl(that.url);
+	}
 
 	public List<ActivityObject> getAttachments()
 	{
@@ -52,32 +70,34 @@ public class ActivityObject
 
 	public void addAllAttachments(List<ActivityObject> attachments)
 	{
-		if (this.attachments == null)
-		{
-			this.attachments = new ArrayList<ActivityObject>(attachments.size());
-		}
+		if (attachments == null) return;
 
-		this.attachments.addAll(attachments);
+		for(ActivityObject attachment : attachments)
+		{
+			addAttachment(attachment);
+		}
 	}
 	
 	public void addAttachment(ActivityObject attachment)
 	{
+		if (attachment == null) return;
+
 		if (this.attachments == null)
 		{
 			this.attachments = new ArrayList<ActivityObject>();
 		}
 		
-		this.attachments.add(attachment);
+		this.attachments.add(new ActivityObject(attachment));
 	}
 
 	public ActivityObject getAuthor()
 	{
-		return author;
+		return (author == null ? null : new ActivityObject(author));
 	}
 
 	public void setAuthor(ActivityObject author)
 	{
-		this.author = author;
+		this.author = (author == null ? null : new ActivityObject(author));
 	}
 
 	public String getContent()
@@ -107,12 +127,24 @@ public class ActivityObject
 
 	public void addAllDownstreamDuplicates(List<String> downstreamDuplicates)
 	{
+		if (downstreamDuplicates == null) return;
+		
+		for (String dup : downstreamDuplicates)
+		{
+			addDownstreamDuplicate(dup);
+		}
+	}
+
+	public void addDownstreamDuplicate(String downstreamDuplicate)
+	{
+		if (downstreamDuplicate == null) return;
+
 		if (this.downstreamDuplicates == null)
 		{
-			this.downstreamDuplicates = new ArrayList<String>(downstreamDuplicates.size());
+			this.downstreamDuplicates = new ArrayList<String>();
 		}
 		
-		this.downstreamDuplicates.addAll(downstreamDuplicates);
+		this.downstreamDuplicates.add(downstreamDuplicate);
 	}
 
 	public String getId()
@@ -127,12 +159,12 @@ public class ActivityObject
 
 	public MediaLink getImage()
 	{
-		return image;
+		return (image == null ? null : new MediaLink(image));
 	}
 
 	public void setImage(MediaLink image)
 	{
-		this.image = image;
+		this.image = (image == null ? null : new MediaLink(image));
 	}
 
 	public String getObjectType()
@@ -147,12 +179,12 @@ public class ActivityObject
 
 	public Date getPublished()
 	{
-		return published;
+		return (published == null ? null : new Date(published.getTime()));
 	}
 
 	public void setPublished(Date published)
 	{
-		this.published = published;
+		this.published = (published == null ? null : new Date(published.getTime()));
 	}
 
 	public String getSummary()
@@ -167,12 +199,12 @@ public class ActivityObject
 
 	public Date getUpdated()
 	{
-		return updated;
+		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public void setUpdated(Date updated)
 	{
-		this.updated = updated;
+		this.updated = (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public List<String> getUpstreamDuplicates()
@@ -182,16 +214,18 @@ public class ActivityObject
 
 	public void addAllUpstreamDuplicates(List<String> upstreamDuplicates)
 	{
-		if (this.upstreamDuplicates == null)
+		if (upstreamDuplicates == null) return;
+
+		for (String dup : upstreamDuplicates)
 		{
-			this.upstreamDuplicates = new ArrayList<String>(upstreamDuplicates.size());
+			addUpstreamDuplicate(dup);
 		}
-		
-		this.upstreamDuplicates.addAll(upstreamDuplicates);
 	}
 
 	public void addUpstreamDuplicate(String upstreamDuplicate)
 	{
+		if (upstreamDuplicate == null) return;
+
 		if (this.upstreamDuplicates == null)
 		{
 			this.upstreamDuplicates = new ArrayList<String>();

@@ -43,22 +43,34 @@ public class Activity
 	}
 
 	/**
-	 * @param activity
+	 * @param that
 	 */
-    public Activity(Activity activity)
+    public Activity(Activity that)
     {
-    	setActor(activity.getActor());
-    	setContent(activity.getContent());
+    	this();
+    	setActor(that.actor);
+    	setContent(that.content);
+    	setGenerator(that.generator);
+    	setIcon(that.icon);
+    	setId(that.id);
+    	setObject(that.object);
+    	setPublished(that.published);
+    	setProvider(that.provider);
+    	setTarget(that.target);
+    	setTitle(that.title);
+    	setUpdated(that.updated);
+    	setUrl(that.url);
+    	setVerb(that.verb);
     }
 
 	public ActivityObject getActor()
 	{
-		return actor;
+		return (actor == null ? null : new ActivityObject(actor));
 	}
 
 	public void setActor(ActivityObject actor)
 	{
-		this.actor = actor;
+		this.actor = (actor == null ? null : new ActivityObject(actor));
 	}
 
 	public String getContent()
@@ -73,22 +85,22 @@ public class Activity
 
 	public ActivityObject getGenerator()
 	{
-		return generator;
+		return (generator == null ? null : new ActivityObject(generator));
 	}
 
 	public void setGenerator(ActivityObject generator)
 	{
-		this.generator = generator;
+		this.generator = (generator == null ? null : new ActivityObject(generator));
 	}
 
 	public MediaLink getIcon()
 	{
-		return icon;
+		return (icon == null ? null : new MediaLink(icon));
 	}
 
 	public void setIcon(MediaLink icon)
 	{
-		this.icon = icon;
+		this.icon = (icon == null ? null : new MediaLink(icon));
 	}
 
 	public String getId()
@@ -103,42 +115,42 @@ public class Activity
 
 	public ActivityObject getObject()
 	{
-		return object;
+		return (object == null ? null : new ActivityObject(object));
 	}
 
 	public void setObject(ActivityObject object)
 	{
-		this.object = object;
+		this.object = (object == null ? null : new ActivityObject(object));
 	}
 
 	public Date getPublished()
 	{
-		return published;
+		return (published == null ? null : new Date(published.getTime()));
 	}
 
 	public void setPublished(Date published)
 	{
-		this.published = published;
+		this.published = (published == null ? null : new Date(published.getTime()));
 	}
 
 	public ActivityObject getProvider()
 	{
-		return provider;
+		return (provider == null ? null : new ActivityObject(provider));
 	}
 
 	public void setProvider(ActivityObject provider)
 	{
-		this.provider = provider;
+		this.provider = (provider == null ? null : new ActivityObject(provider));
 	}
 
 	public ActivityObject getTarget()
 	{
-		return target;
+		return (target == null ? null : new ActivityObject(target));
 	}
 
 	public void setTarget(ActivityObject target)
 	{
-		this.target = target;
+		this.target = (target == null ? null : new ActivityObject(target));
 	}
 
 	public String getTitle()
@@ -153,12 +165,12 @@ public class Activity
 
 	public Date getUpdated()
 	{
-		return updated;
+		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public void setUpdated(Date updated)
 	{
-		this.updated = updated;
+		this.updated = (updated == null ? null : new Date(updated.getTime()));
 	}
 
 	public String getUrl()

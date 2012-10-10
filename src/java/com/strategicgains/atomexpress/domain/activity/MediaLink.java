@@ -30,6 +30,15 @@ public class MediaLink
 	{
 		super();
 	}
+	
+	public MediaLink(MediaLink that)
+	{
+		this();
+		this.duration = that.duration;
+		this.height = that.height;
+		this.url = that.url;
+		this.width = that.width;
+	}
 
 	public String getDuration()
 	{
