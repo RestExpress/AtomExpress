@@ -22,6 +22,18 @@ public class Content
 	private String value;
 	private String src;
 
+	public Content()
+	{
+		super();
+	}
+	
+	public Content(Content that)
+	{
+		setType(that.type);
+		setValue(that.value);
+		setSrc(that.src);
+	}
+
 	public String getType()
 	{
 		return type;

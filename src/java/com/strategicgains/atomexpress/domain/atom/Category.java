@@ -29,6 +29,20 @@ public class Category
 	private String schemeResolved;
 	private String label;
 
+	public Category()
+	{
+		super();
+	}
+	
+	public Category(Category that)
+	{
+		this();
+		setTerm(that.term);
+		setScheme(that.scheme);
+		setSchemeResolved(that.schemeResolved);
+		setLabel(that.label);
+	}
+
 	public String getTerm()
 	{
 		return term;

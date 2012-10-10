@@ -22,6 +22,18 @@ public class Generator
 	private String version;
 	private String value;
 
+	public Generator()
+	{
+		super();
+	}
+	
+	public Generator(Generator that)
+	{
+		this();
+		setUrl(that.url);
+		setVersion(that.version);
+		setValue(that.value);
+	}
 	public String getUrl()
 	{
 		return url;

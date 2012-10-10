@@ -33,6 +33,14 @@ public class ActivityStream
 	{
 		super();
 	}
+	
+	public ActivityStream(ActivityStream that)
+	{
+		this();
+		addAllItems(that.items);
+		setTotalItems();
+		setUrl(that.url);
+	}
 
 	public int getTotalItems()
 	{
@@ -56,22 +64,24 @@ public class ActivityStream
 
 	public void addAllItems(List<Activity> items)
 	{
-		if (this.items == null)
+		if (items == null) return;
+
+		for (Activity item : items)
 		{
-			this.items = new ArrayList<Activity>(items.size());
+			addItem(item);
 		}
-		
-		this.items.addAll(items);
 	}
 
 	public void addItem(Activity item)
 	{
+		if (item == null) return;
+
 		if (this.items == null)
 		{
 			this.items = new ArrayList<Activity>();
 		}
 		
-		this.items.add(item);
+		this.items.add(new Activity(item));
 	}
 
 	public String getUrl()

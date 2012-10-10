@@ -15,6 +15,7 @@
 */
 package com.strategicgains.atomexpress;
 
+import com.strategicgains.atomexpress.domain.atom.Entry;
 import com.strategicgains.atomexpress.domain.atom.Feed;
 
 /**
@@ -28,6 +29,12 @@ public class AtomFeedBuilder
 	public AtomFeedBuilder()
 	{
 		super();
+	}
+	
+	public AtomFeedBuilder addEntry(Entry entry)
+	{
+		feed.addEntry(entry);
+		return this;
 	}
 	
 	public Feed build()
