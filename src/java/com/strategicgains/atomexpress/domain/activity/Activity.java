@@ -23,15 +23,15 @@ import java.util.Date;
  */
 public class Activity
 {
-	private Object actor;
+	private ActivityObject actor;
 	private String content;
-	private Object generator;
+	private ActivityObject generator;
 	private MediaLink icon;
 	private String id;
-	private Object object;
+	private ActivityObject object;
 	private Date published = new Date();
-	private Object provider;
-	private Object target;
+	private ActivityObject provider;
+	private ActivityObject target;
 	private String title;
 	private Date updated;
 	private String url;
@@ -42,12 +42,21 @@ public class Activity
 		super();
 	}
 
-	public Object getActor()
+	/**
+	 * @param activity
+	 */
+    public Activity(Activity activity)
+    {
+    	setActor(activity.getActor());
+    	setContent(activity.getContent());
+    }
+
+	public ActivityObject getActor()
 	{
 		return actor;
 	}
 
-	public void setActor(Object actor)
+	public void setActor(ActivityObject actor)
 	{
 		this.actor = actor;
 	}
@@ -62,12 +71,12 @@ public class Activity
 		this.content = content;
 	}
 
-	public Object getGenerator()
+	public ActivityObject getGenerator()
 	{
 		return generator;
 	}
 
-	public void setGenerator(Object generator)
+	public void setGenerator(ActivityObject generator)
 	{
 		this.generator = generator;
 	}
@@ -92,12 +101,12 @@ public class Activity
 		this.id = id;
 	}
 
-	public Object getObject()
+	public ActivityObject getObject()
 	{
 		return object;
 	}
 
-	public void setObject(Object object)
+	public void setObject(ActivityObject object)
 	{
 		this.object = object;
 	}
@@ -112,22 +121,22 @@ public class Activity
 		this.published = published;
 	}
 
-	public Object getProvider()
+	public ActivityObject getProvider()
 	{
 		return provider;
 	}
 
-	public void setProvider(Object provider)
+	public void setProvider(ActivityObject provider)
 	{
 		this.provider = provider;
 	}
 
-	public Object getTarget()
+	public ActivityObject getTarget()
 	{
 		return target;
 	}
 
-	public void setTarget(Object target)
+	public void setTarget(ActivityObject target)
 	{
 		this.target = target;
 	}

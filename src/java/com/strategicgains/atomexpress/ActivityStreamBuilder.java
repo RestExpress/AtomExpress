@@ -15,6 +15,8 @@
 */
 package com.strategicgains.atomexpress;
 
+import com.strategicgains.atomexpress.domain.activity.Activity;
+import com.strategicgains.atomexpress.domain.activity.ActivityObject;
 import com.strategicgains.atomexpress.domain.activity.ActivityStream;
 
 /**
@@ -28,6 +30,30 @@ public class ActivityStreamBuilder
 	public ActivityStreamBuilder()
 	{
 		super();
+	}
+
+	public ActivityStreamBuilder setUrl(String url)
+	{
+		stream.setUrl(url);
+		return this;
+	}
+
+	public ActivityStreamBuilder addActivity(String id, ActivityObject actor, String verb, ActivityObject object, ActivityObject target)
+	{
+		Activity a = new Activity();
+		a.setId(id);
+		a.setActor(actor);
+		a.setVerb(verb);
+		a.setObject(object);
+		a.setTarget(target);
+		stream.addItem(a);
+		return this;
+	}
+	
+	public ActivityStreamBuilder addActivity(Activity activity)
+	{
+		stream.addItem(new Activity(activity));
+		return this;
 	}
 	
 	public ActivityStream build()

@@ -24,10 +24,10 @@ import java.util.List;
  * @author toddf
  * @since Oct 9, 2012
  */
-public class Object
+public class ActivityObject
 {
-	private List<Object> attachments;
-	private Object author;
+	private List<ActivityObject> attachments;
+	private ActivityObject author;
 	private String content;
 	private String displayName;
 	private List<String> downstreamDuplicates;
@@ -40,42 +40,42 @@ public class Object
 	private List<String> upstreamDuplicates;
 	private String url;
 
-	public Object()
+	public ActivityObject()
 	{
 		super();
 	}
 
-	public List<Object> getAttachments()
+	public List<ActivityObject> getAttachments()
 	{
 		return (this.attachments == null ? null : Collections.unmodifiableList(attachments));
 	}
 
-	public void addAllAttachments(List<Object> attachments)
+	public void addAllAttachments(List<ActivityObject> attachments)
 	{
 		if (this.attachments == null)
 		{
-			this.attachments = new ArrayList<Object>(attachments.size());
+			this.attachments = new ArrayList<ActivityObject>(attachments.size());
 		}
 
 		this.attachments.addAll(attachments);
 	}
 	
-	public void addAttachment(Object attachment)
+	public void addAttachment(ActivityObject attachment)
 	{
 		if (this.attachments == null)
 		{
-			this.attachments = new ArrayList<Object>();
+			this.attachments = new ArrayList<ActivityObject>();
 		}
 		
 		this.attachments.add(attachment);
 	}
 
-	public Object getAuthor()
+	public ActivityObject getAuthor()
 	{
 		return author;
 	}
 
-	public void setAuthor(Object author)
+	public void setAuthor(ActivityObject author)
 	{
 		this.author = author;
 	}
