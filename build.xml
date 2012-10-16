@@ -125,4 +125,9 @@
     	</jar>
     </target>
 
+    <target name="install" depends="release" description="Install a release in the lib/ directory">
+    	<copy todir="../lib">
+    		<fileset dir="${dir.dist}"/>
+    	</copy>
+    </target>
 </project>
