@@ -49,9 +49,10 @@ public class Person
 		return name;
 	}
 
-	public void setName(String name)
+	public Person setName(String name)
 	{
 		this.name = name;
+		return this;
 	}
 
 	public String getUri()
@@ -59,9 +60,10 @@ public class Person
 		return uri;
 	}
 
-	public void setUri(String uri)
+	public Person setUri(String uri)
 	{
 		this.uri = uri;
+		return this;
 	}
 
 	public String getUriResolved()
@@ -69,9 +71,10 @@ public class Person
 		return uriResolved;
 	}
 
-	public void setUriResolved(String uriResolved)
+	public Person setUriResolved(String uriResolved)
 	{
 		this.uriResolved = uriResolved;
+		return this;
 	}
 
 	public String getEmail()
@@ -79,8 +82,9 @@ public class Person
 		return email;
 	}
 
-	public void setEmail(String email)
+	public Person setEmail(String email)
 	{
 		this.email = email;
+		return this;
 	}
 }

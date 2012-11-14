@@ -39,9 +39,10 @@ public class Generator
 		return url;
 	}
 
-	public void setUrl(String url)
+	public Generator setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public String getVersion()
@@ -49,9 +50,10 @@ public class Generator
 		return version;
 	}
 
-	public void setVersion(String version)
+	public Generator setVersion(String version)
 	{
 		this.version = version;
+		return this;
 	}
 
 	public String getValue()
@@ -59,8 +61,9 @@ public class Generator
 		return value;
 	}
 
-	public void setValue(String value)
+	public Generator setValue(String value)
 	{
 		this.value = value;
+		return this;
 	}
 }

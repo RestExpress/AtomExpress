@@ -29,14 +29,34 @@ public class Image
 	private Integer height;
 	private String description;
 
+	public Image()
+	{
+		super();
+	}
+	
+	public Image(Image that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setTitle(that.title);
+		setUrl(that.url);
+		setLink(that.link);
+		setWidth(that.width);
+		setHeight(that.height);
+		setDescription(that.description);
+	}
+
 	public String getTitle()
 	{
 		return title;
 	}
 
-	public void setTitle(String title)
+	public Image setTitle(String title)
 	{
 		this.title = title;
+		return this;
 	}
 
 	public String getUrl()
@@ -44,9 +64,10 @@ public class Image
 		return url;
 	}
 
-	public void setUrl(String url)
+	public Image setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public String getLink()
@@ -54,29 +75,32 @@ public class Image
 		return link;
 	}
 
-	public void setLink(String link)
+	public Image setLink(String link)
 	{
 		this.link = link;
+		return this;
 	}
 
 	public Integer getWidth()
 	{
-		return width;
+		return (width == null ? null : new Integer(width));
 	}
 
-	public void setWidth(Integer width)
+	public Image setWidth(Integer width)
 	{
-		this.width = width;
+		this.width = (width == null ? null : new Integer(width));
+		return this;
 	}
 
 	public Integer getHeight()
 	{
-		return height;
+		return (height == null ? null : new Integer(height));
 	}
 
-	public void setHeight(Integer height)
+	public Image setHeight(Integer height)
 	{
-		this.height = height;
+		this.height = (height == null ? null : new Integer(height));
+		return this;
 	}
 
 	public String getDescription()
@@ -84,8 +108,9 @@ public class Image
 		return description;
 	}
 
-	public void setDescription(String description)
+	public Image setDescription(String description)
 	{
 		this.description = description;
+		return this;
 	}
 }

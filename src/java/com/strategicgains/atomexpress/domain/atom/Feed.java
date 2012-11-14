@@ -79,9 +79,10 @@ public class Feed
 		return xmlBase;
 	}
 
-	public void setXmlBase(String xmlBase)
+	public Feed setXmlBase(String xmlBase)
 	{
 		this.xmlBase = xmlBase;
+		return this;
 	}
 
 	public List<Category> getCategories()
@@ -89,19 +90,21 @@ public class Feed
 		return (categories == null ? null : Collections.unmodifiableList(categories));
 	}
 
-	public void addAllCategories(List<Category> categories)
+	public Feed addAllCategories(List<Category> categories)
 	{
-		if (categories == null) return;
+		if (categories == null) return this;
 
 		for (Category cat : categories)
 		{
 			addCategory(cat);
 		}
+
+		return this;
 	}
 
-    public void addCategory(Category category)
+    public Feed addCategory(Category category)
     {
-    	if (category == null) return;
+    	if (category == null) return this;
     	
     	if (this.categories == null)
     	{
@@ -109,6 +112,7 @@ public class Feed
     	}
     	
     	this.categories.add(new Category(category));
+		return this;
     }
 
 	public List<Person> getAuthors()
@@ -116,19 +120,21 @@ public class Feed
 		return (authors == null ? null : Collections.unmodifiableList(authors));
 	}
 
-	public void addAllAuthors(List<Person> authors)
+	public Feed addAllAuthors(List<Person> authors)
 	{
-		if (authors == null) return;
+		if (authors == null) return this;
 
 		for (Person author : authors)
 		{
 			addAuthor(author);
 		}
+
+		return this;
 	}
 
-    public void addAuthor(Person author)
+    public Feed addAuthor(Person author)
     {
-    	if (author == null) return;
+    	if (author == null) return this;
     	
     	if (this.authors == null)
     	{
@@ -136,6 +142,7 @@ public class Feed
     	}
     	
     	this.authors.add(new Person(author));
+		return this;
     }
 
 	public List<Person> getContributors()
@@ -143,19 +150,21 @@ public class Feed
 		return (contributors == null ? null : Collections.unmodifiableList(contributors));
 	}
 
-	public void addAllContributors(List<Person> contributors)
+	public Feed addAllContributors(List<Person> contributors)
 	{
-		if (contributors == null) return;
-		
+		if (contributors == null) return this;
+
 		for (Person contributor : contributors)
 		{
 			addContributor(contributor);
 		}
+
+		return this;
 	}
 
-    public void addContributor(Person contributor)
+    public Feed addContributor(Person contributor)
     {
-    	if (contributor == null) return;
+    	if (contributor == null) return this;
     	
     	if (this.contributors == null)
     	{
@@ -163,6 +172,7 @@ public class Feed
     	}
     	
     	this.contributors.add(new Person(contributor));
+		return this;
     }
 
 	public Generator getGenerator()
@@ -170,9 +180,10 @@ public class Feed
 		return (generator == null ? null : new Generator(generator));
 	}
 
-	public void setGenerator(Generator generator)
+	public Feed setGenerator(Generator generator)
 	{
 		this.generator = (generator == null ? null : new Generator(generator));
+		return this;
 	}
 
 	public String getIcon()
@@ -180,9 +191,10 @@ public class Feed
 		return icon;
 	}
 
-	public void setIcon(String icon)
+	public Feed setIcon(String icon)
 	{
 		this.icon = icon;
+		return this;
 	}
 
 	public String getId()
@@ -190,9 +202,10 @@ public class Feed
 		return id;
 	}
 
-	public void setId(String id)
+	public Feed setId(String id)
 	{
 		this.id = id;
+		return this;
 	}
 
 	public String getLogo()
@@ -200,9 +213,10 @@ public class Feed
 		return logo;
 	}
 
-	public void setLogo(String logo)
+	public Feed setLogo(String logo)
 	{
 		this.logo = logo;
+		return this;
 	}
 
 	public String getRights()
@@ -210,9 +224,10 @@ public class Feed
 		return rights;
 	}
 
-	public void setRights(String rights)
+	public Feed setRights(String rights)
 	{
 		this.rights = rights;
+		return this;
 	}
 
 	public Content getSubtitle()
@@ -220,9 +235,10 @@ public class Feed
 		return (subtitle == null ? null : new Content(subtitle));
 	}
 
-	public void setSubtitle(Content subtitle)
+	public Feed setSubtitle(Content subtitle)
 	{
 		this.subtitle = (subtitle == null ? null : new Content(subtitle));
+		return this;
 	}
 
 	public Content getTitle()
@@ -230,9 +246,10 @@ public class Feed
 		return (title == null ? null : new Content(title));
 	}
 
-	public void setTitle(Content title)
+	public Feed setTitle(Content title)
 	{
 		this.title = (title == null ? null : new Content(title));
+		return this;
 	}
 
 	public Date getUpdated()
@@ -240,9 +257,10 @@ public class Feed
 		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
-	public void setUpdated(Date updated)
+	public Feed setUpdated(Date updated)
 	{
 		this.updated = (updated == null ? null : new Date(updated.getTime()));
+		return this;
 	}
 
 	public List<Link> getAlternateLinks()
@@ -250,19 +268,21 @@ public class Feed
 		return (alternateLinks == null ? null : Collections.unmodifiableList(alternateLinks));
 	}
 
-	public void addAllAlternateLinks(List<Link> alternateLinks)
+	public Feed addAllAlternateLinks(List<Link> alternateLinks)
 	{
-		if (alternateLinks == null) return;
-		
+		if (alternateLinks == null) return this;
+
 		for (Link link : alternateLinks)
 		{
 			addAlternateLink(link);
 		}
+
+		return this;
 	}
 
-    public void addAlternateLink(Link link)
+    public Feed addAlternateLink(Link link)
     {
-    	if (link == null) return;
+    	if (link == null) return this;
     	
     	if (this.alternateLinks == null)
     	{
@@ -270,6 +290,7 @@ public class Feed
     	}
     	
     	this.alternateLinks.add(new Link(link));
+		return this;
     }
 
 	public List<Link> getOtherLinks()
@@ -277,19 +298,21 @@ public class Feed
 		return (otherLinks == null ? null : Collections.unmodifiableList(otherLinks));
 	}
 
-	public void addAllOtherLinks(List<Link> otherLinks)
+	public Feed addAllOtherLinks(List<Link> otherLinks)
 	{
-		if (otherLinks == null) return;
-		
+		if (otherLinks == null) return this;
+
 		for (Link link : otherLinks)
 		{
 			addOtherLink(link);
 		}
+
+		return this;
 	}
 
-    public void addOtherLink(Link link)
+    public Feed addOtherLink(Link link)
     {
-    	if (link == null) return;
+    	if (link == null) return this;
     	
     	if (this.otherLinks == null)
     	{
@@ -297,6 +320,7 @@ public class Feed
     	}
     	
     	this.otherLinks.add(new Link(link));
+		return this;
     }
 
 	public List<Entry> getEntries()
@@ -304,19 +328,21 @@ public class Feed
 		return (entries == null ? null : Collections.unmodifiableList(entries));
 	}
 
-	public void addAllEntries(List<Entry> entries)
+	public Feed addAllEntries(List<Entry> entries)
 	{
-		if (entries == null) return;
-		
+		if (entries == null) return this;
+
 		for (Entry entry : entries)
 		{
 			addEntry(entry);
 		}
+
+		return this;
 	}
 
-    public void addEntry(Entry entry)
+    public Feed addEntry(Entry entry)
     {
-    	if (entry == null) return;
+    	if (entry == null) return this;
     	
     	if (this.entries == null)
     	{
@@ -324,5 +350,6 @@ public class Feed
     	}
     	
     	this.entries.add(new Entry(entry));
+		return this;
     }
 }

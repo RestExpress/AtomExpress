@@ -25,14 +25,30 @@ public class Guid
 	private boolean permaLink;
 	private String value;
 
+	public Guid()
+	{
+		super();
+	}
+	
+	public Guid(Guid that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setPermaLink(that.permaLink);
+		setValue(that.value);
+	}
+
 	public boolean isPermaLink()
 	{
 		return permaLink;
 	}
 
-	public void setPermaLink(boolean permaLink)
+	public Guid setPermaLink(boolean permaLink)
 	{
 		this.permaLink = permaLink;
+		return this;
 	}
 
 	public String getValue()
@@ -40,8 +56,9 @@ public class Guid
 		return value;
 	}
 
-	public void setValue(String value)
+	public Guid setValue(String value)
 	{
 		this.value = value;
+		return this;
 	}
 }

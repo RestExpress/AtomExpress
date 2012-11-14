@@ -45,32 +45,36 @@ public class Activity
 	/**
 	 * @param that
 	 */
-    public Activity(Activity that)
-    {
-    	this();
-    	setActor(that.actor);
-    	setContent(that.content);
-    	setGenerator(that.generator);
-    	setIcon(that.icon);
-    	setId(that.id);
-    	setObject(that.object);
-    	setPublished(that.published);
-    	setProvider(that.provider);
-    	setTarget(that.target);
-    	setTitle(that.title);
-    	setUpdated(that.updated);
-    	setUrl(that.url);
-    	setVerb(that.verb);
-    }
+	public Activity(Activity that)
+	{
+		this();
+
+		if (that == null) return;
+
+		setActor(that.actor);
+		setContent(that.content);
+		setGenerator(that.generator);
+		setIcon(that.icon);
+		setId(that.id);
+		setObject(that.object);
+		setPublished(that.published);
+		setProvider(that.provider);
+		setTarget(that.target);
+		setTitle(that.title);
+		setUpdated(that.updated);
+		setUrl(that.url);
+		setVerb(that.verb);
+	}
 
 	public ActivityObject getActor()
 	{
 		return (actor == null ? null : new ActivityObject(actor));
 	}
 
-	public void setActor(ActivityObject actor)
+	public Activity setActor(ActivityObject actor)
 	{
 		this.actor = (actor == null ? null : new ActivityObject(actor));
+		return this;
 	}
 
 	public String getContent()
@@ -78,9 +82,10 @@ public class Activity
 		return content;
 	}
 
-	public void setContent(String content)
+	public Activity setContent(String content)
 	{
 		this.content = content;
+		return this;
 	}
 
 	public ActivityObject getGenerator()
@@ -88,9 +93,10 @@ public class Activity
 		return (generator == null ? null : new ActivityObject(generator));
 	}
 
-	public void setGenerator(ActivityObject generator)
+	public Activity setGenerator(ActivityObject generator)
 	{
 		this.generator = (generator == null ? null : new ActivityObject(generator));
+		return this;
 	}
 
 	public MediaLink getIcon()
@@ -98,9 +104,10 @@ public class Activity
 		return (icon == null ? null : new MediaLink(icon));
 	}
 
-	public void setIcon(MediaLink icon)
+	public Activity setIcon(MediaLink icon)
 	{
 		this.icon = (icon == null ? null : new MediaLink(icon));
+		return this;
 	}
 
 	public String getId()
@@ -108,9 +115,10 @@ public class Activity
 		return id;
 	}
 
-	public void setId(String id)
+	public Activity setId(String id)
 	{
 		this.id = id;
+		return this;
 	}
 
 	public ActivityObject getObject()
@@ -118,9 +126,10 @@ public class Activity
 		return (object == null ? null : new ActivityObject(object));
 	}
 
-	public void setObject(ActivityObject object)
+	public Activity setObject(ActivityObject object)
 	{
 		this.object = (object == null ? null : new ActivityObject(object));
+		return this;
 	}
 
 	public Date getPublished()
@@ -128,9 +137,10 @@ public class Activity
 		return (published == null ? null : new Date(published.getTime()));
 	}
 
-	public void setPublished(Date published)
+	public Activity setPublished(Date published)
 	{
 		this.published = (published == null ? null : new Date(published.getTime()));
+		return this;
 	}
 
 	public ActivityObject getProvider()
@@ -138,9 +148,10 @@ public class Activity
 		return (provider == null ? null : new ActivityObject(provider));
 	}
 
-	public void setProvider(ActivityObject provider)
+	public Activity setProvider(ActivityObject provider)
 	{
 		this.provider = (provider == null ? null : new ActivityObject(provider));
+		return this;
 	}
 
 	public ActivityObject getTarget()
@@ -148,9 +159,10 @@ public class Activity
 		return (target == null ? null : new ActivityObject(target));
 	}
 
-	public void setTarget(ActivityObject target)
+	public Activity setTarget(ActivityObject target)
 	{
 		this.target = (target == null ? null : new ActivityObject(target));
+		return this;
 	}
 
 	public String getTitle()
@@ -158,9 +170,10 @@ public class Activity
 		return title;
 	}
 
-	public void setTitle(String title)
+	public Activity setTitle(String title)
 	{
 		this.title = title;
+		return this;
 	}
 
 	public Date getUpdated()
@@ -168,9 +181,10 @@ public class Activity
 		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
-	public void setUpdated(Date updated)
+	public Activity setUpdated(Date updated)
 	{
 		this.updated = (updated == null ? null : new Date(updated.getTime()));
+		return this;
 	}
 
 	public String getUrl()
@@ -178,9 +192,10 @@ public class Activity
 		return url;
 	}
 
-	public void setUrl(String url)
+	public Activity setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public String getVerb()
@@ -188,8 +203,9 @@ public class Activity
 		return verb;
 	}
 
-	public void setVerb(String verb)
+	public Activity setVerb(String verb)
 	{
 		this.verb = verb;
+		return this;
 	}
 }

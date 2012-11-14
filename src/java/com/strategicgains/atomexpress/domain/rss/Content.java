@@ -29,14 +29,30 @@ public class Content
 	private String type;
 	private String value;
 
+	public Content()
+	{
+		super();
+	}
+	
+	public Content(Content that)
+	{
+		this();
+		
+		if (that == null) return;
+
+		setType(that.getType());
+		setValue(that.getValue());
+	}
+
 	public String getType()
 	{
 		return type;
 	}
 
-	public void setType(String type)
+	public Content setType(String type)
 	{
 		this.type = type;
+		return this;
 	}
 
 	public String getValue()
@@ -44,8 +60,9 @@ public class Content
 		return value;
 	}
 
-	public void setValue(String value)
+	public Content setValue(String value)
 	{
 		this.value = value;
+		return this;
 	}
 }

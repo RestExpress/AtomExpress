@@ -54,9 +54,10 @@ public class Link
 		return href;
 	}
 
-	public void setHref(String href)
+	public Link setHref(String href)
 	{
 		this.href = href;
+		return this;
 	}
 
 	public String getHrefResolved()
@@ -64,9 +65,10 @@ public class Link
 		return hrefResolved;
 	}
 
-	public void setHrefResolved(String hrefResolved)
+	public Link setHrefResolved(String hrefResolved)
 	{
 		this.hrefResolved = hrefResolved;
+		return this;
 	}
 
 	public String getRel()
@@ -74,9 +76,10 @@ public class Link
 		return rel;
 	}
 
-	public void setRel(String rel)
+	public Link setRel(String rel)
 	{
 		this.rel = rel;
+		return this;
 	}
 
 	public String getType()
@@ -84,9 +87,10 @@ public class Link
 		return type;
 	}
 
-	public void setType(String type)
+	public Link setType(String type)
 	{
 		this.type = type;
+		return this;
 	}
 
 	public String getHreflang()
@@ -94,9 +98,10 @@ public class Link
 		return hreflang;
 	}
 
-	public void setHreflang(String hreflang)
+	public Link setHreflang(String hreflang)
 	{
 		this.hreflang = hreflang;
+		return this;
 	}
 
 	public String getTitle()
@@ -104,9 +109,10 @@ public class Link
 		return title;
 	}
 
-	public void setTitle(String title)
+	public Link setTitle(String title)
 	{
 		this.title = title;
+		return this;
 	}
 
 	public long getLength()
@@ -114,8 +120,9 @@ public class Link
 		return length;
 	}
 
-	public void setLength(long length)
+	public Link setLength(long length)
 	{
 		this.length = length;
+		return this;
 	}
 }

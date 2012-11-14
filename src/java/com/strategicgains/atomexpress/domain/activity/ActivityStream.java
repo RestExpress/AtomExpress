@@ -37,8 +37,11 @@ public class ActivityStream
 	public ActivityStream(ActivityStream that)
 	{
 		this();
+		
+		if (that == null) return;
+
 		addAllItems(that.items);
-		setTotalItems();
+		computeTotalItems();
 		setUrl(that.url);
 	}
 
@@ -47,14 +50,16 @@ public class ActivityStream
 		return totalItems;
 	}
 
-	public void setTotalItems()
+	public ActivityStream computeTotalItems()
 	{
 		this.totalItems = this.items.size();
+		return this;
 	}
 
-	public void setTotalItems(int totalItems)
+	public ActivityStream setTotalItems(int totalItems)
 	{
 		this.totalItems = totalItems;
+		return this;
 	}
 
 	public List<Activity> getItems()
@@ -62,19 +67,21 @@ public class ActivityStream
 		return (this.items == null ? null : Collections.unmodifiableList(items));
 	}
 
-	public void addAllItems(List<Activity> items)
+	public ActivityStream addAllItems(List<Activity> items)
 	{
-		if (items == null) return;
+		if (items == null) return this;
 
 		for (Activity item : items)
 		{
 			addItem(item);
 		}
+		
+		return this;
 	}
 
-	public void addItem(Activity item)
+	public ActivityStream addItem(Activity item)
 	{
-		if (item == null) return;
+		if (item == null) return this;
 
 		if (this.items == null)
 		{
@@ -82,6 +89,7 @@ public class ActivityStream
 		}
 		
 		this.items.add(new Activity(item));
+		return this;
 	}
 
 	public String getUrl()
@@ -89,8 +97,9 @@ public class ActivityStream
 		return url;
 	}
 
-	public void setUrl(String url)
+	public ActivityStream setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 }

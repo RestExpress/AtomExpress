@@ -26,14 +26,30 @@ public class Category
 	private String domain;
 	private String value;
 
+	public Category()
+	{
+		super();
+	}
+	
+	public Category(Category that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setDomain(that.domain);
+		setValue(that.value);
+	}
+
 	public String getDomain()
 	{
 		return domain;
 	}
 
-	public void setDomain(String domain)
+	public Category setDomain(String domain)
 	{
 		this.domain = domain;
+		return this;
 	}
 
 	public String getValue()
@@ -41,8 +57,9 @@ public class Category
 		return value;
 	}
 
-	public void setValue(String value)
+	public Category setValue(String value)
 	{
 		this.value = value;
+		return this;
 	}
 }

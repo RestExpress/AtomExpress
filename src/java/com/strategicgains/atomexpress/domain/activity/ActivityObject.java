@@ -48,6 +48,9 @@ public class ActivityObject
 	public ActivityObject(ActivityObject that)
 	{
 		this();
+		
+		if (that == null) return;
+
 		addAllAttachments(that.attachments);
 		setAuthor(that.author);
 		setContent(that.content);
@@ -68,19 +71,21 @@ public class ActivityObject
 		return (this.attachments == null ? null : Collections.unmodifiableList(attachments));
 	}
 
-	public void addAllAttachments(List<ActivityObject> attachments)
+	public ActivityObject addAllAttachments(List<ActivityObject> attachments)
 	{
-		if (attachments == null) return;
+		if (attachments == null) return this;
 
 		for(ActivityObject attachment : attachments)
 		{
 			addAttachment(attachment);
 		}
+		
+		return this;
 	}
 	
-	public void addAttachment(ActivityObject attachment)
+	public ActivityObject addAttachment(ActivityObject attachment)
 	{
-		if (attachment == null) return;
+		if (attachment == null) return this;
 
 		if (this.attachments == null)
 		{
@@ -88,6 +93,7 @@ public class ActivityObject
 		}
 		
 		this.attachments.add(new ActivityObject(attachment));
+		return this;
 	}
 
 	public ActivityObject getAuthor()
@@ -95,9 +101,10 @@ public class ActivityObject
 		return (author == null ? null : new ActivityObject(author));
 	}
 
-	public void setAuthor(ActivityObject author)
+	public ActivityObject setAuthor(ActivityObject author)
 	{
 		this.author = (author == null ? null : new ActivityObject(author));
+		return this;
 	}
 
 	public String getContent()
@@ -105,9 +112,10 @@ public class ActivityObject
 		return content;
 	}
 
-	public void setContent(String content)
+	public ActivityObject setContent(String content)
 	{
 		this.content = content;
+		return this;
 	}
 
 	public String getDisplayName()
@@ -115,9 +123,10 @@ public class ActivityObject
 		return displayName;
 	}
 
-	public void setDisplayName(String displayName)
+	public ActivityObject setDisplayName(String displayName)
 	{
 		this.displayName = displayName;
+		return this;
 	}
 
 	public List<String> getDownstreamDuplicates()
@@ -125,19 +134,21 @@ public class ActivityObject
 		return (this.downstreamDuplicates == null ? null : Collections.unmodifiableList(downstreamDuplicates));
 	}
 
-	public void addAllDownstreamDuplicates(List<String> downstreamDuplicates)
+	public ActivityObject addAllDownstreamDuplicates(List<String> downstreamDuplicates)
 	{
-		if (downstreamDuplicates == null) return;
-		
+		if (downstreamDuplicates == null) return this;
+
 		for (String dup : downstreamDuplicates)
 		{
 			addDownstreamDuplicate(dup);
 		}
+		
+		return this;
 	}
 
-	public void addDownstreamDuplicate(String downstreamDuplicate)
+	public ActivityObject addDownstreamDuplicate(String downstreamDuplicate)
 	{
-		if (downstreamDuplicate == null) return;
+		if (downstreamDuplicate == null) return this;
 
 		if (this.downstreamDuplicates == null)
 		{
@@ -145,6 +156,7 @@ public class ActivityObject
 		}
 		
 		this.downstreamDuplicates.add(downstreamDuplicate);
+		return this;
 	}
 
 	public String getId()
@@ -152,9 +164,10 @@ public class ActivityObject
 		return id;
 	}
 
-	public void setId(String id)
+	public ActivityObject setId(String id)
 	{
 		this.id = id;
+		return this;
 	}
 
 	public MediaLink getImage()
@@ -162,9 +175,10 @@ public class ActivityObject
 		return (image == null ? null : new MediaLink(image));
 	}
 
-	public void setImage(MediaLink image)
+	public ActivityObject setImage(MediaLink image)
 	{
 		this.image = (image == null ? null : new MediaLink(image));
+		return this;
 	}
 
 	public String getObjectType()
@@ -172,9 +186,10 @@ public class ActivityObject
 		return objectType;
 	}
 
-	public void setObjectType(String objectType)
+	public ActivityObject setObjectType(String objectType)
 	{
 		this.objectType = objectType;
+		return this;
 	}
 
 	public Date getPublished()
@@ -182,9 +197,10 @@ public class ActivityObject
 		return (published == null ? null : new Date(published.getTime()));
 	}
 
-	public void setPublished(Date published)
+	public ActivityObject setPublished(Date published)
 	{
 		this.published = (published == null ? null : new Date(published.getTime()));
+		return this;
 	}
 
 	public String getSummary()
@@ -192,9 +208,10 @@ public class ActivityObject
 		return summary;
 	}
 
-	public void setSummary(String summary)
+	public ActivityObject setSummary(String summary)
 	{
 		this.summary = summary;
+		return this;
 	}
 
 	public Date getUpdated()
@@ -202,9 +219,10 @@ public class ActivityObject
 		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
-	public void setUpdated(Date updated)
+	public ActivityObject setUpdated(Date updated)
 	{
 		this.updated = (updated == null ? null : new Date(updated.getTime()));
+		return this;
 	}
 
 	public List<String> getUpstreamDuplicates()
@@ -212,19 +230,21 @@ public class ActivityObject
 		return (upstreamDuplicates == null ? null : Collections.unmodifiableList(upstreamDuplicates));
 	}
 
-	public void addAllUpstreamDuplicates(List<String> upstreamDuplicates)
+	public ActivityObject addAllUpstreamDuplicates(List<String> upstreamDuplicates)
 	{
-		if (upstreamDuplicates == null) return;
+		if (upstreamDuplicates == null) return this;
 
 		for (String dup : upstreamDuplicates)
 		{
 			addUpstreamDuplicate(dup);
 		}
+		
+		return this;
 	}
 
-	public void addUpstreamDuplicate(String upstreamDuplicate)
+	public ActivityObject addUpstreamDuplicate(String upstreamDuplicate)
 	{
-		if (upstreamDuplicate == null) return;
+		if (upstreamDuplicate == null) return this;
 
 		if (this.upstreamDuplicates == null)
 		{
@@ -232,6 +252,7 @@ public class ActivityObject
 		}
 		
 		this.upstreamDuplicates.add(upstreamDuplicate);
+		return this;
 	}
 
 	public String getUrl()
@@ -239,8 +260,9 @@ public class ActivityObject
 		return url;
 	}
 
-	public void setUrl(String url)
+	public ActivityObject setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 }

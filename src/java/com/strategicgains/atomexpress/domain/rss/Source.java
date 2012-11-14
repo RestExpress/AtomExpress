@@ -25,14 +25,30 @@ public class Source
 	private String url;
 	private String value;
 
+	public Source()
+	{
+		super();
+	}
+	
+	public Source(Source that)
+	{
+		this();
+		
+		if (that == null) return;
+
+		setUrl(that.getUrl());
+		setValue(that.getValue());
+	}
+
 	public String getUrl()
 	{
 		return url;
 	}
 
-	public void setUrl(String url)
+	public Source setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public String getValue()
@@ -40,8 +56,9 @@ public class Source
 		return value;
 	}
 
-	public void setValue(String value)
+	public Source setValue(String value)
 	{
 		this.value = value;
+		return this;
 	}
 }

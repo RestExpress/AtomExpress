@@ -16,7 +16,10 @@
  */
 package com.strategicgains.atomexpress.domain.rss;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Bean for RSS feeds.
@@ -40,22 +43,58 @@ public class Channel
 	private String docs;
 	private String managingEditor;
 	private String webMaster;
-	private List skipHours;
+	private List<String> skipHours;
 	private List<Days> skipDays;
 	private Cloud cloud;
 	private List<Category> categories;
 	private String generator;
 	private int ttl = -1;
-	private List modules;
+	private List<String> modules;
+
+	public Channel()
+	{
+		super();
+	}
+
+	public Channel(Channel that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setTitle(that.title);
+		setDescription(that.description);
+		setLink(that.link);
+		setUri(that.uri);
+		setImage(that.image);
+		addAllItems(that.items);
+		setTextInput(that.textInput);
+		setLanguage(that.language);
+		setRating(that.rating);
+		setCopyright(that.copyright);
+		setPubDate(that.pubDate);
+		setLastBuildDate(that.lastBuildDate);
+		setDocs(that.docs);
+		setManagingEditor(that.managingEditor);
+		setWebMaster(that.webMaster);
+		addAllSkipHours(that.skipHours);
+		addAllSkipDays(that.skipDays);
+		setCloud(that.cloud);
+		addAllCategories(that.categories);
+		setGenerator(that.generator);
+		setTtl(that.ttl);
+		addAllModules(that.modules);
+	}
 
 	public String getTitle()
 	{
 		return title;
 	}
 
-	public void setTitle(String title)
+	public Channel setTitle(String title)
 	{
 		this.title = title;
+		return this;
 	}
 
 	public String getDescription()
@@ -63,9 +102,10 @@ public class Channel
 		return description;
 	}
 
-	public void setDescription(String description)
+	public Channel setDescription(String description)
 	{
 		this.description = description;
+		return this;
 	}
 
 	public String getLink()
@@ -73,9 +113,10 @@ public class Channel
 		return link;
 	}
 
-	public void setLink(String link)
+	public Channel setLink(String link)
 	{
 		this.link = link;
+		return this;
 	}
 
 	public String getUri()
@@ -83,39 +124,60 @@ public class Channel
 		return uri;
 	}
 
-	public void setUri(String uri)
+	public Channel setUri(String uri)
 	{
 		this.uri = uri;
+		return this;
 	}
 
 	public Image getImage()
 	{
-		return image;
+		return new Image(image);
 	}
 
-	public void setImage(Image image)
+	public Channel setImage(Image image)
 	{
-		this.image = image;
+		this.image = new Image(image);
+		return this;
 	}
 
 	public List<Item> getItems()
 	{
-		return items;
+		return (items == null ? null : Collections.unmodifiableList(items));
 	}
 
-	public void setItems(List<Item> items)
+	public Channel addAllItems(List<Item> items)
 	{
-		this.items = items;
+		if (items == null) return this;
+
+		for (Item item : items)
+		{
+			addItem(item);
+		}
+
+		return this;
+	}
+
+	public Channel addItem(Item item)
+	{
+		if (items == null)
+		{
+			items = new ArrayList<Item>();
+		}
+		
+		items.add(new Item(item));
+		return this;
 	}
 
 	public TextInput getTextInput()
 	{
-		return textInput;
+		return new TextInput(textInput);
 	}
 
-	public void setTextInput(TextInput textInput)
+	public Channel setTextInput(TextInput textInput)
 	{
-		this.textInput = textInput;
+		this.textInput = new TextInput(textInput);
+		return this;
 	}
 
 	public String getLanguage()
@@ -123,9 +185,10 @@ public class Channel
 		return language;
 	}
 
-	public void setLanguage(String language)
+	public Channel setLanguage(String language)
 	{
 		this.language = language;
+		return this;
 	}
 
 	public String getRating()
@@ -133,9 +196,10 @@ public class Channel
 		return rating;
 	}
 
-	public void setRating(String rating)
+	public Channel setRating(String rating)
 	{
 		this.rating = rating;
+		return this;
 	}
 
 	public String getCopyright()
@@ -143,29 +207,32 @@ public class Channel
 		return copyright;
 	}
 
-	public void setCopyright(String copyright)
+	public Channel setCopyright(String copyright)
 	{
 		this.copyright = copyright;
+		return this;
 	}
 
 	public Date getPubDate()
 	{
-		return pubDate;
+		return (pubDate == null ? null : new Date(pubDate.getTime()));
 	}
 
-	public void setPubDate(Date pubDate)
+	public Channel setPubDate(Date pubDate)
 	{
-		this.pubDate = pubDate;
+		this.pubDate = (pubDate == null ? null : new Date(pubDate.getTime()));
+		return this;
 	}
 
 	public Date getLastBuildDate()
 	{
-		return lastBuildDate;
+		return (lastBuildDate == null ? null : new Date(lastBuildDate.getTime()));
 	}
 
-	public void setLastBuildDate(Date lastBuildDate)
+	public Channel setLastBuildDate(Date lastBuildDate)
 	{
-		this.lastBuildDate = lastBuildDate;
+		this.lastBuildDate = (lastBuildDate == null ? null : new Date(lastBuildDate.getTime()));
+		return this;
 	}
 
 	public String getDocs()
@@ -173,9 +240,10 @@ public class Channel
 		return docs;
 	}
 
-	public void setDocs(String docs)
+	public Channel setDocs(String docs)
 	{
 		this.docs = docs;
+		return this;
 	}
 
 	public String getManagingEditor()
@@ -183,9 +251,10 @@ public class Channel
 		return managingEditor;
 	}
 
-	public void setManagingEditor(String managingEditor)
+	public Channel setManagingEditor(String managingEditor)
 	{
 		this.managingEditor = managingEditor;
+		return this;
 	}
 
 	public String getWebMaster()
@@ -193,29 +262,66 @@ public class Channel
 		return webMaster;
 	}
 
-	public void setWebMaster(String webMaster)
+	public Channel setWebMaster(String webMaster)
 	{
 		this.webMaster = webMaster;
+		return this;
 	}
 
-	public List getSkipHours()
+	public List<?> getSkipHours()
 	{
-		return skipHours;
+		return (skipHours == null ? null : Collections.unmodifiableList(skipHours));
 	}
 
-	public void setSkipHours(List skipHours)
+	public Channel addAllSkipHours(List<String> skipHours)
 	{
-		this.skipHours = skipHours;
+		if (skipHours == null) return this;
+
+		for (String skipHour : skipHours)
+		{
+			addSkipHour(skipHour);
+		}
+
+		return this;
 	}
+
+	public Channel addSkipHour(String skipHour)
+    {
+		if (skipHours == null)
+		{
+			skipHours = new ArrayList<String>();
+		}
+		
+		skipHours.add(skipHour);
+		return this;
+    }
 
 	public List<Days> getSkipDays()
 	{
-		return skipDays;
+		return (skipDays == null ? null : Collections.unmodifiableList(skipDays));
 	}
 
-	public void setSkipDays(List<Days> skipDays)
+	public Channel addAllSkipDays(List<Days> skipDays)
 	{
-		this.skipDays = skipDays;
+		if (skipDays == null) return this;
+
+		for (Days skipDay : skipDays)
+		{
+			addSkipDay(skipDay);
+		}
+
+		return this;
+	}
+	
+	public Channel addSkipDay(Days skipDay)
+	{
+		if (skipDays == null)
+		{
+			skipDays = new ArrayList<Days>();
+		}
+		
+		skipDays.add(skipDay);
+		return this;
 	}
 
 	public Cloud getCloud()
@@ -223,19 +329,38 @@ public class Channel
 		return cloud;
 	}
 
-	public void setCloud(Cloud cloud)
+	public Channel setCloud(Cloud cloud)
 	{
 		this.cloud = cloud;
+		return this;
 	}
 
 	public List<Category> getCategories()
 	{
-		return categories;
+		return (categories == null ? null : Collections.unmodifiableList(categories));
 	}
 
-	public void setCategories(List<Category> categories)
+	public Channel addAllCategories(List<Category> categories)
 	{
-		this.categories = categories;
+		if (categories == null) return this;
+
+		for (Category category : categories)
+		{
+			addCategory(category);
+		}
+
+		return this;
+	}
+	
+	public Channel addCategory(Category category)
+	{
+		if (categories == null)
+		{
+			categories = new ArrayList<Category>();
+		}
+		
+		categories.add(new Category(category));
+		return this;
 	}
 
 	public String getGenerator()
@@ -243,9 +368,10 @@ public class Channel
 		return generator;
 	}
 
-	public void setGenerator(String generator)
+	public Channel setGenerator(String generator)
 	{
 		this.generator = generator;
+		return this;
 	}
 
 	public int getTtl()
@@ -253,18 +379,37 @@ public class Channel
 		return ttl;
 	}
 
-	public void setTtl(int ttl)
+	public Channel setTtl(int ttl)
 	{
 		this.ttl = ttl;
+		return this;
 	}
 
-	public List getModules()
+	public List<?> getModules()
 	{
-		return modules;
+		return (modules == null ? null : Collections.unmodifiableList(modules));
 	}
 
-	public void setModules(List modules)
+	public Channel addModule(String module)
 	{
-		this.modules = modules;
+		if (modules == null)
+		{
+			modules = new ArrayList<String>();
+		}
+		
+		modules.add(module);
+		return this;
+	}
+
+	public Channel addAllModules(List<String> modules)
+	{
+		if (modules == null) return this;
+
+		for (String module : modules)
+		{
+			addModule(module);
+		}
+
+		return this;
 	}
 }

@@ -27,14 +27,32 @@ public class TextInput
 	private String name;
 	private String link;
 
+	public TextInput()
+	{
+		super();
+	}
+	
+	public TextInput(TextInput that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setTitle(that.title);
+		setDescription(that.description);
+		setName(that.name);
+		setLink(that.link);
+	}
+
 	public String getTitle()
 	{
 		return title;
 	}
 
-	public void setTitle(String title)
+	public TextInput setTitle(String title)
 	{
 		this.title = title;
+		return this;
 	}
 
 	public String getDescription()
@@ -42,9 +60,10 @@ public class TextInput
 		return description;
 	}
 
-	public void setDescription(String description)
+	public TextInput setDescription(String description)
 	{
 		this.description = description;
+		return this;
 	}
 
 	public String getName()
@@ -52,9 +71,10 @@ public class TextInput
 		return name;
 	}
 
-	public void setName(String name)
+	public TextInput setName(String name)
 	{
 		this.name = name;
+		return this;
 	}
 
 	public String getLink()
@@ -62,8 +82,9 @@ public class TextInput
 		return link;
 	}
 
-	public void setLink(String link)
+	public TextInput setLink(String link)
 	{
 		this.link = link;
+		return this;
 	}
 }

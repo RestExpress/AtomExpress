@@ -48,9 +48,10 @@ public class Category
 		return term;
 	}
 
-	public void setTerm(String term)
+	public Category setTerm(String term)
 	{
 		this.term = term;
+		return this;
 	}
 
 	public String getScheme()
@@ -58,9 +59,10 @@ public class Category
 		return scheme;
 	}
 
-	public void setScheme(String scheme)
+	public Category setScheme(String scheme)
 	{
 		this.scheme = scheme;
+		return this;
 	}
 
 	public String getSchemeResolved()
@@ -68,9 +70,10 @@ public class Category
 		return schemeResolved;
 	}
 
-	public void setSchemeResolved(String schemeResolved)
+	public Category setSchemeResolved(String schemeResolved)
 	{
 		this.schemeResolved = schemeResolved;
+		return this;
 	}
 
 	public String getLabel()
@@ -78,9 +81,9 @@ public class Category
 		return label;
 	}
 
-	public void setLabel(String label)
+	public Category setLabel(String label)
 	{
 		this.label = label;
+		return this;
 	}
-
 }

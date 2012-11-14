@@ -30,14 +30,33 @@ public class Cloud
 	private String registerProcedure;
 	private String protocol;
 
+	public Cloud()
+	{
+		super();
+	}
+	
+	public Cloud(Cloud that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setDomain(that.domain);
+		setPort(that.port);
+		setPath(that.path);
+		setRegisterProcedure(that.registerProcedure);
+		setProtocol(that.protocol);
+	}
+
 	public String getDomain()
 	{
 		return domain;
 	}
 
-	public void setDomain(String domain)
+	public Cloud setDomain(String domain)
 	{
 		this.domain = domain;
+		return this;
 	}
 
 	public int getPort()
@@ -45,9 +64,10 @@ public class Cloud
 		return port;
 	}
 
-	public void setPort(int port)
+	public Cloud setPort(int port)
 	{
 		this.port = port;
+		return this;
 	}
 
 	public String getPath()
@@ -55,9 +75,10 @@ public class Cloud
 		return path;
 	}
 
-	public void setPath(String path)
+	public Cloud setPath(String path)
 	{
 		this.path = path;
+		return this;
 	}
 
 	public String getRegisterProcedure()
@@ -65,9 +86,10 @@ public class Cloud
 		return registerProcedure;
 	}
 
-	public void setRegisterProcedure(String registerProcedure)
+	public Cloud setRegisterProcedure(String registerProcedure)
 	{
 		this.registerProcedure = registerProcedure;
+		return this;
 	}
 
 	public String getProtocol()
@@ -75,8 +97,9 @@ public class Cloud
 		return protocol;
 	}
 
-	public void setProtocol(String protocol)
+	public Cloud setProtocol(String protocol)
 	{
 		this.protocol = protocol;
+		return this;
 	}
 }

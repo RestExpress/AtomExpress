@@ -26,14 +26,28 @@ public class Enclosure
 	private long length;
 	private String type;
 
+	public Enclosure()
+	{
+		super();
+	}
+	
+	public Enclosure(Enclosure that)
+	{
+		this();
+		
+		if (that == null) return;
+		
+		setUrl(that.url);
+	}
 	public String getUrl()
 	{
 		return url;
 	}
 
-	public void setUrl(String url)
+	public Enclosure setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public long getLength()
@@ -41,9 +55,10 @@ public class Enclosure
 		return length;
 	}
 
-	public void setLength(long length)
+	public Enclosure setLength(long length)
 	{
 		this.length = length;
+		return this;
 	}
 
 	public String getType()
@@ -51,8 +66,9 @@ public class Enclosure
 		return type;
 	}
 
-	public void setType(String type)
+	public Enclosure setType(String type)
 	{
 		this.type = type;
+		return this;
 	}
 }

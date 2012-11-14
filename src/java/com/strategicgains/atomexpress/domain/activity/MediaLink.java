@@ -34,6 +34,9 @@ public class MediaLink
 	public MediaLink(MediaLink that)
 	{
 		this();
+		
+		if (that == null) return;
+
 		this.duration = that.duration;
 		this.height = that.height;
 		this.url = that.url;
@@ -45,9 +48,10 @@ public class MediaLink
 		return duration;
 	}
 
-	public void setDuration(Integer duration)
+	public MediaLink setDuration(Integer duration)
 	{
 		this.duration = (duration == null ? null : String.valueOf(duration.intValue()));
+		return this;
 	}
 
 	public String getHeight()
@@ -55,9 +59,10 @@ public class MediaLink
 		return height;
 	}
 
-	public void setHeight(Integer height)
+	public MediaLink setHeight(Integer height)
 	{
 		this.height = (height == null ? null : String.valueOf(height.intValue()));
+		return this;
 	}
 
 	public String getUrl()
@@ -65,9 +70,10 @@ public class MediaLink
 		return url;
 	}
 
-	public void setUrl(String url)
+	public MediaLink setUrl(String url)
 	{
 		this.url = url;
+		return this;
 	}
 
 	public String getWidth()
@@ -75,8 +81,9 @@ public class MediaLink
 		return width;
 	}
 
-	public void setWidth(Integer width)
+	public MediaLink setWidth(Integer width)
 	{
 		this.width = (width == null ? null : String.valueOf(width.intValue()));
+		return this;
 	}
 }

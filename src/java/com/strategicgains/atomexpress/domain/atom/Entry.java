@@ -79,9 +79,10 @@ public class Entry
 		return xmlBase;
 	}
 
-	public void setXmlBase(String xmlBase)
+	public Entry setXmlBase(String xmlBase)
 	{
 		this.xmlBase = xmlBase;
+		return this;
 	}
 
 	public List<Person> getAuthors()
@@ -89,19 +90,21 @@ public class Entry
 		return (authors == null ? null : Collections.unmodifiableList(authors));
 	}
 
-	public void addAllAuthors(List<Person> authors)
+	public Entry addAllAuthors(List<Person> authors)
 	{
-		if (authors == null) return;
+		if (authors == null) return this;
 
 		for (Person author : authors)
 		{
 			addAuthor(author);
 		}
+
+		return this;
 	}
 
-    public void addAuthor(Person author)
+    public Entry addAuthor(Person author)
     {
-    	if (author == null) return;
+    	if (author == null) return this;
     	
 
 		if (this.authors == null)
@@ -110,6 +113,7 @@ public class Entry
 		}
 		
 		this.authors.add(new Person(author));
+		return this;
     }
 
 	public List<Person> getContributors()
@@ -117,20 +121,22 @@ public class Entry
 		return (contributors == null ? null : Collections.unmodifiableList(contributors));
 	}
 
-	public void addAllContributors(List<Person> contributors)
+	public Entry addAllContributors(List<Person> contributors)
 	{
-		if (contributors == null) return;
-		
+		if (contributors == null) return this;
+
 		for (Person contributor : contributors)
 		{
 			addContributor(contributor);
 		}
+
+		return this;
 	}
 
-    private void addContributor(Person contributor)
+    private Entry addContributor(Person contributor)
     {
-    	if (contributor == null) return;
-    	
+    	if (contributor == null) return this;
+
 
 		if (this.contributors == null)
 		{
@@ -138,6 +144,7 @@ public class Entry
 		}
 		
 		this.contributors.add(new Person(contributor));
+		return this;
     }
 
 	public List<Category> getCategories()
@@ -145,19 +152,21 @@ public class Entry
 		return (categories == null ? null : Collections.unmodifiableList(categories));
 	}
 
-	public void addAllCategories(List<Category> categories)
+	public Entry addAllCategories(List<Category> categories)
 	{
-		if (categories == null) return;
+		if (categories == null) return this;
 
 		for (Category category : categories)
 		{
 			addCategory(category);
 		}
+
+		return this;
 	}
 
-	public void addCategory(Category category)
+	public Entry addCategory(Category category)
 	{
-		if (category == null) return;
+		if (category == null) return this;
 		
 		if (this.categories == null)
 		{
@@ -165,6 +174,7 @@ public class Entry
 		}
 		
 		this.categories.add(new Category(category));
+		return this;
 	}
 
 	public List<Content> getContents()
@@ -172,19 +182,21 @@ public class Entry
 		return (contents == null ? null : Collections.unmodifiableList(contents));
 	}
 
-	public void addAllContents(List<Content> contents)
+	public Entry addAllContents(List<Content> contents)
 	{
-		if (contents == null) return;
-		
+		if (contents == null) return this;
+
 		for (Content content : contents)
 		{
 			addContent(content);
 		}
+
+		return this;
 	}
 
-    public void addContent(Content content)
+    public Entry addContent(Content content)
     {
-    	if (content == null) return;
+    	if (content == null) return this;
     	
     	if (this.contents == null)
     	{
@@ -192,6 +204,7 @@ public class Entry
     	}
     	
     	this.contents.add(new Content(content));
+		return this;
     }
 
 	public String getId()
@@ -199,9 +212,10 @@ public class Entry
 		return id;
 	}
 
-	public void setId(String id)
+	public Entry setId(String id)
 	{
 		this.id = id;
+		return this;
 	}
 
 	public Date getPublished()
@@ -209,9 +223,10 @@ public class Entry
 		return (published == null ? null : new Date(published.getTime()));
 	}
 
-	public void setPublished(Date published)
+	public Entry setPublished(Date published)
 	{
 		this.published = (published == null ? null : new Date(published.getTime()));
+		return this;
 	}
 
 	public String getRights()
@@ -219,9 +234,10 @@ public class Entry
 		return rights;
 	}
 
-	public void setRights(String rights)
+	public Entry setRights(String rights)
 	{
 		this.rights = rights;
+		return this;
 	}
 
 	public Feed getSource()
@@ -229,9 +245,10 @@ public class Entry
 		return (source == null ? null : new Feed(source));
 	}
 
-	public void setSource(Feed source)
+	public Entry setSource(Feed source)
 	{
 		this.source = (source == null ? null : new Feed(source));
+		return this;
 	}
 
 	public Content getSummary()
@@ -239,9 +256,10 @@ public class Entry
 		return (summary == null ? null : new Content(summary));
 	}
 
-	public void setSummary(Content summary)
+	public Entry setSummary(Content summary)
 	{
 		this.summary = (summary == null ? null : new Content(summary));
+		return this;
 	}
 
 	public Content getTitle()
@@ -249,9 +267,10 @@ public class Entry
 		return (title == null ? null: new Content(title));
 	}
 
-	public void setTitle(Content title)
+	public Entry setTitle(Content title)
 	{
 		this.title = (title == null ? null: new Content(title));
+		return this;
 	}
 
 	public Date getUpdated()
@@ -259,9 +278,10 @@ public class Entry
 		return (updated == null ? null : new Date(updated.getTime()));
 	}
 
-	public void setUpdated(Date updated)
+	public Entry setUpdated(Date updated)
 	{
 		this.updated = (updated == null ? null : new Date(updated.getTime()));
+		return this;
 	}
 
 	public List<Link> getAlternateLinks()
@@ -269,19 +289,21 @@ public class Entry
 		return (alternateLinks == null ? null : Collections.unmodifiableList(alternateLinks));
 	}
 
-	public void addAllAlternateLinks(List<Link> alternateLinks)
+	public Entry addAllAlternateLinks(List<Link> alternateLinks)
 	{
-		if (alternateLinks == null) return;
-		
+		if (alternateLinks == null) return this;
+
 		for (Link link : alternateLinks)
 		{
 			addAlternateLink(link);
 		}
+
+		return this;
 	}
 
-    public void addAlternateLink(Link link)
+    public Entry addAlternateLink(Link link)
     {
-    	if (link == null) return;
+    	if (link == null) return this;
     	
     	if (this.alternateLinks == null)
     	{
@@ -289,6 +311,7 @@ public class Entry
     	}
     	
     	this.alternateLinks.add(new Link(link));
+		return this;
     }
 
 	public List<Link> getOtherLinks()
@@ -296,19 +319,21 @@ public class Entry
 		return (otherLinks == null ? null : Collections.unmodifiableList(otherLinks));
 	}
 
-	public void addAllOtherLinks(List<Link> otherLinks)
+	public Entry addAllOtherLinks(List<Link> otherLinks)
 	{
-		if (otherLinks == null) return;
-		
+		if (otherLinks == null) return this;
+
 		for (Link link : otherLinks)
 		{
 			addOtherLink(link);
 		}
+
+		return this;
 	}
 
-    public void addOtherLink(Link link)
+    public Entry addOtherLink(Link link)
     {
-    	if (link == null) return;
+    	if (link == null) return this;
     	
     	if (this.otherLinks == null)
     	{
@@ -316,6 +341,7 @@ public class Entry
     	}
     	
     	this.otherLinks.add(new Link(link));
+		return this;
     }
 
 	public List<String> getForeignMarkup()
@@ -323,19 +349,21 @@ public class Entry
 		return (foreignMarkup == null ? null : Collections.unmodifiableList(foreignMarkup));
 	}
 
-	public void addAllForeignMarkup(List<String> foreignMarkup)
+	public Entry addAllForeignMarkup(List<String> foreignMarkup)
 	{
-		if (foreignMarkup == null) return;
-		
+		if (foreignMarkup == null) return this;
+
 		for (String markup : foreignMarkup)
 		{
 			addForeignMarkup(markup);
 		}
+
+		return this;
 	}
 
-    public void addForeignMarkup(String markup)
+    public Entry addForeignMarkup(String markup)
     {
-    	if (markup == null) return;
+    	if (markup == null) return this;
     	
     	if (this.foreignMarkup == null)
     	{
@@ -343,5 +371,6 @@ public class Entry
     	}
     	
     	this.foreignMarkup.add(markup);
+		return this;
     }
 }

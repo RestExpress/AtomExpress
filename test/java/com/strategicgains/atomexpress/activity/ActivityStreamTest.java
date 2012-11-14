@@ -13,51 +13,42 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package com.strategicgains.atomexpress;
+package com.strategicgains.atomexpress.activity;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 import com.strategicgains.atomexpress.domain.activity.Activity;
 import com.strategicgains.atomexpress.domain.activity.ActivityObject;
 import com.strategicgains.atomexpress.domain.activity.ActivityStream;
 
 /**
- * @author toddf
- * @since Oct 9, 2012
+ * @author fredta2
+ * @since Nov 14, 2012
  */
-public class ActivityStreamBuilder
+public class ActivityStreamTest
 {
-	private ActivityStream stream = new ActivityStream();
-
-	public ActivityStreamBuilder()
+	@Test
+	public void shouldConstructBasicActivityStream()
 	{
-		super();
-	}
-
-	public ActivityStreamBuilder setUrl(String url)
-	{
-		stream.setUrl(url);
-		return this;
-	}
-
-	public ActivityStreamBuilder addActivity(String id, ActivityObject actor, String verb, ActivityObject object, ActivityObject target)
-	{
-		Activity a = new Activity();
-		a.setId(id);
-		a.setActor(actor);
-		a.setVerb(verb);
-		a.setObject(object);
-		a.setTarget(target);
-		stream.addItem(a);
-		return this;
-	}
-	
-	public ActivityStreamBuilder addActivity(Activity activity)
-	{
-		stream.addItem(new Activity(activity));
-		return this;
-	}
-	
-	public ActivityStream build()
-	{
-		return stream;
+		ActivityStream s = new ActivityStream();
+		s.addItem(new Activity()
+			.setTitle("AtomExpress JUnit Execution")
+			.setActor(
+				new ActivityObject()
+					.setDisplayName("toddf"))
+			.setVerb("run")
+			.setGenerator(
+				new ActivityObject()
+					.setContent("JUnit"))
+			.setTarget(
+				new ActivityObject()
+					.setContent("Eclipse")));
+		
+		assertNotNull(s);
+		s.computeTotalItems();
+		assertEquals(1, s.getTotalItems());
 	}
 }
