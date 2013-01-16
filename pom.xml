@@ -15,14 +15,6 @@
 		<version>7</version>
 	</parent>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
 	<build>
 		<defaultGoal>compile</defaultGoal>
 		<sourceDirectory>src/java</sourceDirectory>
@@ -97,6 +89,14 @@
 		</dependency>
 	</dependencies>
 
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
 	<issueManagement>
 		<system>GitHub.com</system>
 		<url>https://github.com/RestExpress/HyperExpress/issues</url>
@@ -106,7 +106,6 @@
 		<url>git@github.com:RestExpress/AtomExpress.git</url>
 		<connection>scm:git:git@github.com:RestExpress/AtomExpress.git</connection>
 		<developerConnection>scm:git:git@github.com:RestExpress/AtomExpress.git</developerConnection>
-		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
