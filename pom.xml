@@ -6,7 +6,7 @@
 	<url>https://github.com/RestExpress/AtomExpress</url>
 	<groupId>com.strategicgains</groupId>
 	<artifactId>AtomExpress</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.1</version>
 	<packaging>jar</packaging>
 
 	<parent>
@@ -106,7 +106,8 @@
 		<url>git@github.com:RestExpress/AtomExpress.git</url>
 		<connection>scm:git:git@github.com:RestExpress/AtomExpress.git</connection>
 		<developerConnection>scm:git:git@github.com:RestExpress/AtomExpress.git</developerConnection>
-	</scm>
+	  <tag>AtomExpress-0.1.1</tag>
+  </scm>
 
 	<developers>
 		<developer>
