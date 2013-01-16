@@ -19,7 +19,7 @@ Stable:
 		<dependency>
 			<groupId>com.strategicgains</groupId>
 			<artifactId>AtomExpress</artifactId>
-			<version>0.1.0</version>
+			<version>0.1.1</version>
 		</dependency>
 ```
 Development:
@@ -27,7 +27,7 @@ Development:
 		<dependency>
 			<groupId>com.strategicgains</groupId>
 			<artifactId>AtomExpress</artifactId>
-			<version>0.1.1-SNAPSHOT</version>
+			<version>0.1.2-SNAPSHOT</version>
 		</dependency>
 ```
 Or download the jar directly from: 
