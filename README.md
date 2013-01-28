@@ -1,3 +1,5 @@
+[![Build Status](https://buildhive.cloudbees.com/job/RestExpress/job/AtomExpress/badge/icon)](https://buildhive.cloudbees.com/job/RestExpress/job/AtomExpress/)
+
 AtomExpress is a simple set of domain models that support:
 
 * Atom feeds (http://www.ietf.org/rfc/rfc4287.txt)
